@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297136857095",
+    "project_id": "fittrack-dbea3",
+    "storage_bucket": "fittrack-dbea3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297136857095:android:0a7803d6cd61f52ef0caa2",
+        "android_client_info": {
+          "package_name": "com.example.flutter_proyecto_fitness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk0Va3RYJMUQXI0QRDPt06YdKrB5vaxdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

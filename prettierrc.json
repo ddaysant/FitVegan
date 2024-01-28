@@ -1,0 +1,38 @@
+{
+    
+"arrowParens": "always",
+"bracketSpacing": true,
+"htmlWhitespaceSensitivity": "css",
+"insertPragma": false,
+"jsxSingleQuote": false,
+"proseWrap": "preserve",
+"quoteProps": "as-needed",
+"requirePragma": false,
+"semi": false,
+"singleQuote": true,
+"tabWidth": 2,
+"trailingComma":"all",
+"useTabs": true,
+"vueIndentScriptAndStyle": false,
+"printWidth": 80,
+
+
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[Vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+    "[dart]": { "editor.defaultFormatter": "Dart-Code.dart-code" },
+    "editor.formatOnSave": true
+  
+}
