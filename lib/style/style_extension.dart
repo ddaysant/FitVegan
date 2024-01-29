@@ -37,7 +37,7 @@ class TitleSubtitle extends StatelessWidget {
 }
 
 class FitStyle {
-  static Color get primaryColor1 => const Color.fromARGB(200, 239, 204, 204);
+  static Color get primaryColor1 => const Color.fromARGB(199, 255, 185, 185);
   static LinearGradient get primaryGradient => LinearGradient(
         colors: primaryG,
         begin: Alignment.bottomRight,
@@ -52,9 +52,9 @@ class FitStyle {
   static List<Color> get secondaryG => [secondaryColor2, secondaryColor1];
 
   static Color get black => const Color(0xff1D1617);
-  static Color get gray => const Color(0xff786F72);
+  static Color get gray => const Color.fromARGB(255, 76, 72, 73);
   static Color get white => Colors.white;
-  static Color get lightGray => const Color(0xffF7F8F8);
+  static Color get lightGray => const Color.fromARGB(255, 121, 125, 125);
 
   static const largeText = TextStyle(fontSize: 30, color: Color.fromARGB(255, 251, 250, 250));
   static const mediumText = TextStyle(fontSize: 18, color: Color.fromARGB(255, 251, 250, 250));

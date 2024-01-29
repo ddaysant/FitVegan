@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class StepsPage extends StatelessWidget {
+  const StepsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Steps'),
+        title: const Text('Steps'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -15,12 +17,12 @@ class StepsPage extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
               blurRadius: 5,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),
-        padding: EdgeInsets.all(20),
-        child: Column(
+        padding: const EdgeInsets.all(20),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(

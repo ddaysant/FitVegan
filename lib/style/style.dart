@@ -9,7 +9,7 @@ class AppStyles {
       gradient: gradient,
       image: DecorationImage(
         image: AssetImage(imagePath),
-        fit: BoxFit.cover, // Utiliza BoxFit.cover para que la imagen cubra todo el fondo
+        fit: BoxFit.cover, 
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/responsive_layout.dart';
+
 class ContactUsForm extends StatefulWidget {
   const ContactUsForm({Key? key}) : super(key: key);
 
@@ -15,14 +17,11 @@ class ContactUsFormState extends State<ContactUsForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact Us'),
-      ),
+    return ResponsiveLayout.buildScaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/img/womanfruite4.jpg'), 
+            image: AssetImage('assets/img/womanfruite4.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -41,9 +40,12 @@ class ContactUsFormState extends State<ContactUsForm> {
                       }
                       return null;
                     },
-                    decoration: const InputDecoration(labelText: 'Name'),
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                      labelStyle: TextStyle(fontSize: 14.0), 
+                    ),
                   ),
-                  const SizedBox(height: 16.0),
+                  const SizedBox(height: 8.0),
                   TextFormField(
                     controller: _emailController,
                     validator: (value) {
@@ -52,10 +54,13 @@ class ContactUsFormState extends State<ContactUsForm> {
                       }
                       return null;
                     },
-                    decoration: const InputDecoration(labelText: 'Email'),
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(fontSize: 14.0), 
+                    ),
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(height: 16.0),
+                  const SizedBox(height: 8.0),
                   TextFormField(
                     controller: _messageController,
                     validator: (value) {
@@ -64,15 +69,21 @@ class ContactUsFormState extends State<ContactUsForm> {
                       }
                       return null;
                     },
-                    decoration: const InputDecoration(labelText: 'Message'),
+                    decoration: const InputDecoration(
+                      labelText: 'Message',
+                      labelStyle: TextStyle(fontSize: 14.0), 
+                    ),
                     maxLines: 4,
                   ),
-                  const SizedBox(height: 24.0),
+                  const SizedBox(height: 14.0),
                   ElevatedButton(
                     onPressed: () {
                       _submitForm();
                     },
-                    child: const Text('Submit',style: TextStyle(color: Color.fromARGB(255, 2, 2, 2))),
+                    child: const Text(
+                      'Submit',
+                      style: TextStyle(fontSize: 16.0, color: Color.fromARGB(255, 2, 2, 2)),
+                    ),
                   ),
                 ],
               ),
@@ -80,17 +91,16 @@ class ContactUsFormState extends State<ContactUsForm> {
           ),
         ),
       ),
+      context: context,
     );
   }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // Aquí puedes agregar lógica para enviar el formulario, por ejemplo, enviar datos a un servidor.
       String name = _nameController.text;
       String email = _emailController.text;
       String message = _messageController.text;
 
-      // Imprime los datos en la consola (puedes reemplazar esto con la lógica de envío real).
       print('Name: $name');
       print('Email: $email');
       print('Message: $message');
@@ -101,22 +111,23 @@ class ContactUsFormState extends State<ContactUsForm> {
 class AppContainer extends StatelessWidget {
   final Widget child;
 
-  const AppContainer({super.key, required this.child});
+  const AppContainer({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.8, 
+      width: MediaQuery.of(context).size.width * 0.8,
+      height: MediaQuery.of(context).size.height * 0.7,
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-        boxShadow: const [
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        boxShadow: [
           BoxShadow(
             spreadRadius: 1,
             blurRadius: 3,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -124,4 +135,3 @@ class AppContainer extends StatelessWidget {
     );
   }
 }
-

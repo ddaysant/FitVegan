@@ -7,7 +7,7 @@ class PlateCard extends StatelessWidget {
   final String description;
   final String imagePath;
 
-   PlateCard(this.title, this.description, this.imagePath);
+   const PlateCard(this.title, this.description, this.imagePath, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class PlateCard extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
               blurRadius: 5,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),
@@ -44,11 +44,11 @@ class PlateCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 color: Colors.black.withOpacity(0.5),
                 child: Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                   ),

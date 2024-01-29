@@ -39,7 +39,7 @@ class DataEntryRow extends StatelessWidget {
                 },
                 child: PlateCardPage(username: ''),
               ),
-              transitionDuration: Duration(milliseconds: 500),
+              transitionDuration: const Duration(milliseconds: 500),
             ),
           );
         }else  if (title == "Activities") {
@@ -57,9 +57,9 @@ class DataEntryRow extends StatelessWidget {
                     child: child,
                   );
                 },
-                child: FitnessScreen(),
+                child: const FitnessScreen(),
               ),
-              transitionDuration: Duration(milliseconds: 500),
+              transitionDuration: const Duration(milliseconds: 500),
             ),
           );
       }else  if (title == "Recipes to inspire you") {
@@ -79,7 +79,7 @@ class DataEntryRow extends StatelessWidget {
                 },
                 child: const RecipeView(),
               ),
-              transitionDuration: Duration(milliseconds: 500),
+              transitionDuration: const Duration(milliseconds: 500),
             ),
           );
       }else  if (title == "Contact Us") {
@@ -99,7 +99,7 @@ class DataEntryRow extends StatelessWidget {
                 },
                 child: const ContactUsForm(),
               ),
-              transitionDuration: Duration(milliseconds: 500),
+              transitionDuration: const Duration(milliseconds: 500),
             ),
           );
       }

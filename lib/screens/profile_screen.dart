@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+// profile.dart
 
+import 'package:flutter/material.dart';
 import '../app_routes/DataEntryRow.dart';
-import '../services/api_service.dart';
+import '../widgets/responsive_layout.dart';
+
 
 class UserProfile {
   String dateOfBirth = "";
@@ -33,177 +35,146 @@ class _ProfileViewState extends State<ProfileView> {
   List accountArr = [
     {"image": "assets/img/dieta.png", "name": "Vegan Meal", "tag": "2"},
     {"image": "assets/img/ejercicio.png", "name": "Activities", "tag": "3"},
-     {"image": "../assets/img/feijoada.png", "name": "Recipes to inspire you", "tag": "3"},
+    {"image": "assets/img/feijoada.png", "name": "Recipes to inspire you", "tag": "3"},
   ];
 
   List otherArr = [
     {"image": "assets/img/contacto.png", "name": "Contact Us", "tag": "6"},
   ];
 
-  final FirebaseService _firebaseService = FirebaseService();
 
-  @override
-  void initState() {
-    super.initState();
-    _loadUserProfile();
-  }
 
-  Future<void> _loadUserProfile() async {
-    try {
-      UserProfile? loadedProfile = (await _firebaseService.getUserProfile()) as UserProfile?;
 
-      if (loadedProfile != null) {
-        setState(() {
-          userProfile = loadedProfile;
-        });
-      }
-    } catch (error) {
-      print('Error al cargar el perfil: $error');
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            "assets/img/juice.jpg",
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            fit: BoxFit.cover,
-          ),
-          SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 50),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.black12, blurRadius: 2),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome!",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 2, 2, 2),
-                            fontSize: 28,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "Your Vegan Program",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 9, 9, 9),
-                            fontSize: 21,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.black12, blurRadius: 2),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "For You",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 2, 2, 2),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: accountArr.length,
-                          itemBuilder: (context, index) {
-                            var iObj = accountArr[index] as Map? ?? {};
-                            return DataEntryRow(
-                              icon: iObj["image"].toString(),
-                              title: iObj["name"].toString(),
-                              onPressed: () {},
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.black12, blurRadius: 2),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Other",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 9, 9, 9),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          itemCount: otherArr.length,
-                          itemBuilder: (context, index) {
-                            var iObj = otherArr[index] as Map? ?? {};
-                            return DataEntryRow(
-                              icon: iObj["image"].toString(),
-                              title: iObj["name"].toString(),
-                              onPressed: () {},
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+    return ResponsiveLayout.buildScaffold(
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          double screenWidth = MediaQuery.of(context).size.width;
+
+          return Stack(
+            children: [
+              Image.asset(
+                "assets/img/juice.jpg",
+                width: screenWidth,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
               ),
-            ),
-          ),
-        ],
+              SingleChildScrollView(
+                child: Container(
+                  width: screenWidth,
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: screenWidth * 0.04,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(123, 245, 128, 128),
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.black12, blurRadius: 2),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Welcome!",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                            Text(
+                              "Your Vegan Program",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.04,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                       const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.black12, blurRadius: 2),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "For You",
+                              style: TextStyle(
+                               color: Colors.black,
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                            for (var iObj in accountArr)
+                              DataEntryRow(
+                                icon: iObj["image"].toString(),
+                                title: iObj["name"].toString(),
+                                onPressed: () {},
+                              ),
+                          ],
+                        ),
+                      ),
+                       const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.black12, blurRadius: 2),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Other",
+                              style: TextStyle(
+                              color: Colors.black,
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                            for (var iObj in otherArr)
+                              DataEntryRow(
+                                icon: iObj["image"].toString(),
+                                title: iObj["name"].toString(),
+                                onPressed: () {},
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
+      context: context,
     );
   }
 }
-

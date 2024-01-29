@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import '../widgets/responsive_layout.dart';
 import 'IngredientsPage.dart';
 import 'StepsPage.dart';
+
 
 class PlateDetailPage extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
 
-  PlateDetailPage(this.title, this.description, this.imagePath);
+  const PlateDetailPage(this.title, this.description, this.imagePath, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +18,23 @@ class PlateDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
+       body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color.fromARGB(255, 196, 230, 241),Color.fromARGB(118, 244, 82, 114)],
+          ),
+        ),
+      child: Column(
         children: [
           Image.asset(
             imagePath,
-            height: 200,
+            height: ResponsiveLayout.isSmallScreen(context) ? 150 : 200,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -33,7 +44,7 @@ class PlateDetailPage extends StatelessWidget {
               _buildInfoIcon(Icons.local_fire_department, 'Calorías', '500'),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -42,7 +53,7 @@ class PlateDetailPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => IngredientsPage(),
+                      builder: (context) => const IngredientsPage(),
                     ),
                   );
                 },
@@ -53,13 +64,16 @@ class PlateDetailPage extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.2),
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
+                        blurRadius: ResponsiveLayout.isSmallScreen(context) ? 3 : 5,
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
-                  padding: EdgeInsets.all(20),
-                  child: Column(
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  child: const Column(
                     children: [
                       Icon(Icons.shopping_basket),
                       Text('Ingredients'),
@@ -72,7 +86,7 @@ class PlateDetailPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => StepsPage(),
+                      builder: (context) => const StepsPage(),
                     ),
                   );
                 },
@@ -83,13 +97,16 @@ class PlateDetailPage extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.2),
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
+                        blurRadius: ResponsiveLayout.isSmallScreen(context) ? 3 : 5,
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
-                  padding: EdgeInsets.all(20),
-                  child: Column(
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  child: const Column(
                     children: [
                       Icon(Icons.list),
                       Text('Steps'),
@@ -99,9 +116,10 @@ class PlateDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
         ],
       ),
+       ),
     );
   }
 
@@ -109,10 +127,10 @@ class PlateDetailPage extends StatelessWidget {
     return Column(
       children: [
         Icon(icon, size: 30),
-        SizedBox(height: 5),
-        Text(title, style: TextStyle(fontSize: 14)),
-        SizedBox(height: 5),
-        Text(value, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 5),
+        Text(title, style: const TextStyle(fontSize: 14)),
+        const SizedBox(height: 5),
+        Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       ],
     );
   }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import '../widgets/responsive_layout.dart';
 
 class FitnessScreen extends StatelessWidget {
+  const FitnessScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ResponsiveLayout.buildScaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -15,16 +18,16 @@ class FitnessScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
-                Text(
+                const Text(
                   'Let\'s Workout!',
                   style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                 ),
@@ -35,20 +38,21 @@ class FitnessScreen extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 children: [
-                  _buildWorkoutContainer(context, 'Workout 1', '../assets/img/ft1.png', 'https://youtu.be/-5Dxp1MF-IY?feature=shared'),
-                  _buildWorkoutContainer(context, 'Workout 2', '../assets/img/fit2.png', 'https://youtu.be/-5Dxp1MF-IY?feature=shared'),
-                  _buildWorkoutContainer(context, 'Workout 3', '../assets/img/fit3.png', 'https://youtu.be/-5Dxp1MF-IY?feature=shared'),
-                  _buildWorkoutContainer(context, 'Workout 4', '../assets/img/fit4.png', 'https://youtu.be/VIDEO_ID_4'),
-                  _buildWorkoutContainer(context, 'Workout 5', '../assets/img/fit5.png', 'https://youtu.be/VIDEO_ID_5'),
-                  _buildWorkoutContainer(context, 'Workout 6', '../assets/img/fit6.png', 'https://youtu.be/VIDEO_ID_6'),
-                  _buildWorkoutContainer(context, 'Workout 7', '../assets/img/fit7.png', 'https://youtu.be/VIDEO_ID_7'),
-                  _buildWorkoutContainer(context, 'Workout 8', '../assets/img/fit8.png', 'https://youtu.be/VIDEO_ID_8'),
+                  _buildWorkoutContainer(context, 'Squats', 'assets/img/ft1.png', 'https://youtu.be/xqvCmoLULNY?si=fxtSLmRAxY7BHIVV'),
+                  _buildWorkoutContainer(context, 'Glute Bridges', 'assets/img/fit2.png', 'https://youtu.be/XLXGydU5DdU?si=7USdxtCOhkVErsUB'),
+                  _buildWorkoutContainer(context, 'Planks', 'assets/img/fit3.png', 'https://youtu.be/yKoPxCsVknQ?si=2nnLGGPIcbDMBuQk'),
+                  _buildWorkoutContainer(context, 'Push-ups', 'assets/img/fit4.png', 'https://youtu.be/tWjBnQX3if0?si=umH8sOB93NxCC5VG'),
+                  _buildWorkoutContainer(context, 'Side Planks', 'assets/img/fit5.png', 'https://youtu.be/9dNL_mtObGQ?si=To5hwewBoxEmIbM-'),
+                  _buildWorkoutContainer(context, 'Wall Sits', 'assets/img/fit6.png', 'https://youtu.be/-cdph8hv0O0?si=HSS4rYgsZ3OggvvY'),
+                  _buildWorkoutContainer(context, 'Box Squats', 'assets/img/fit7.png', 'https://youtu.be/QifjltKUMCk?si=4ew-1eO0CdeqPsf6'),
+                  _buildWorkoutContainer(context, 'Side Leg Raises', 'assets/img/fit8.png', 'https://youtu.be/jgh6sGwtTwk?si=t70ufKHqt3gigtPP'),
                 ],
               ),
             ),
           ],
         ),
       ),
+      context: context,
     );
   }
 
@@ -58,9 +62,9 @@ class FitnessScreen extends StatelessWidget {
         _openYoutubeVideo(context, videoUrl);
       },
       child: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         width: double.infinity,
-        height: 200, // Altura ajustada
+        height: ResponsiveLayout.isLargeScreen(context) ? 250 : 200,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -68,11 +72,11 @@ class FitnessScreen extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
               child: Image.asset(
                 imagePath,
-                width: 100,
-                height: 180, // Ajusta la altura de la imagen
+                width: ResponsiveLayout.isLargeScreen(context) ? 150 : 100,
+                height: ResponsiveLayout.isLargeScreen(context) ? 230 : 180,
                 fit: BoxFit.cover,
               ),
             ),
@@ -83,12 +87,12 @@ class FitnessScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               bottom: 20,
               left: 0,
               right: 0,
@@ -105,12 +109,12 @@ class FitnessScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
+            const Positioned(
               top: 75,
               left: 0,
               right: 0,
               child: Center(
-                child: Icon(Icons.play_circle_fill, size: 50, color: Colors.white), // Icono de reproducción en blanco
+                child: Icon(Icons.play_circle_fill, size: 50, color: Colors.white),
               ),
             ),
           ],
@@ -123,9 +127,9 @@ class FitnessScreen extends StatelessWidget {
     try {
       String? videoId = YoutubePlayer.convertUrlToId(videoUrl);
       if (videoId != null) {
-        YoutubePlayerController _controller = YoutubePlayerController(
+        YoutubePlayerController controller = YoutubePlayerController(
           initialVideoId: videoId,
-          flags: YoutubePlayerFlags(
+          flags: const YoutubePlayerFlags(
             autoPlay: true,
             mute: false,
           ),
@@ -136,21 +140,21 @@ class FitnessScreen extends StatelessWidget {
             builder: (context) => Scaffold(
               appBar: AppBar(
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
-                title: Text('Video Player'),
+                title: const Text('Video Player'),
               ),
               body: Center(
                 child: YoutubePlayer(
-                  controller: _controller,
+                  controller: controller,
                   showVideoProgressIndicator: true,
-                  progressIndicatorColor: Color.fromARGB(255, 255, 68, 149),
-                  progressColors: ProgressBarColors(
+                  progressIndicatorColor: const Color.fromARGB(255, 255, 68, 149),
+                  progressColors: const ProgressBarColors(
                     playedColor: Color.fromARGB(255, 172, 65, 79),
-                    handleColor: const Color.fromARGB(255, 255, 68, 93),
+                    handleColor: Color.fromARGB(255, 255, 68, 93),
                   ),
                   onReady: () {
                     // Video is ready.

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -89,7 +91,7 @@ class _RecipeViewState extends State<RecipeView> {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 229, 241, 236),
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: const [
                   BoxShadow(color: Colors.black12, blurRadius: 2),
@@ -99,7 +101,7 @@ class _RecipeViewState extends State<RecipeView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),
                     ),

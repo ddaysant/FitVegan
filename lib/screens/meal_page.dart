@@ -6,7 +6,7 @@ import '../widgets/carousel_page.dart';
 class PlateCardPage extends StatelessWidget {
   final String username;
 
-  PlateCardPage({required this.username});
+  const PlateCardPage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PlateCardPage extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/img/starryuniverse1.jpg'),
                     fit: BoxFit.cover,
@@ -29,7 +29,7 @@ class PlateCardPage extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.all(50),
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 75),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 75),
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(20),
@@ -48,18 +48,18 @@ class PlateCardPage extends StatelessWidget {
                 children: [
                   Text(
                     'Menu for day, $username!',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 16, color: Colors.white),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'Preparation in less than 20 minutes',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 10, color: Colors.white),
                   ),
                 ],
               ),
             ),
-            Container(
-              height: 650.0,
+            const SizedBox(
+              height: 680.0,
               child: CarouselPage(),
             ),
           ],
