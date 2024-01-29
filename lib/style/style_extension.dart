@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TitleSubtitle extends StatelessWidget {
@@ -56,8 +55,10 @@ class FitStyle {
   static Color get white => Colors.white;
   static Color get lightGray => const Color.fromARGB(255, 121, 125, 125);
 
-  static const largeText = TextStyle(fontSize: 30, color: Color.fromARGB(255, 251, 250, 250));
-  static const mediumText = TextStyle(fontSize: 18, color: Color.fromARGB(255, 251, 250, 250));
+  static const largeText =
+      TextStyle(fontSize: 30, color: Color.fromARGB(255, 251, 250, 250));
+  static const mediumText =
+      TextStyle(fontSize: 18, color: Color.fromARGB(255, 251, 250, 250));
   static const smallText =
       TextStyle(fontSize: 10, color: Color.fromARGB(255, 252, 251, 251));
 }

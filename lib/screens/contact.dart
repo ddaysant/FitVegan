@@ -42,7 +42,7 @@ class ContactUsFormState extends State<ContactUsForm> {
                     },
                     decoration: const InputDecoration(
                       labelText: 'Name',
-                      labelStyle: TextStyle(fontSize: 14.0), 
+                      labelStyle: TextStyle(fontSize: 14.0),
                     ),
                   ),
                   const SizedBox(height: 8.0),
@@ -56,7 +56,7 @@ class ContactUsFormState extends State<ContactUsForm> {
                     },
                     decoration: const InputDecoration(
                       labelText: 'Email',
-                      labelStyle: TextStyle(fontSize: 14.0), 
+                      labelStyle: TextStyle(fontSize: 14.0),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -71,7 +71,7 @@ class ContactUsFormState extends State<ContactUsForm> {
                     },
                     decoration: const InputDecoration(
                       labelText: 'Message',
-                      labelStyle: TextStyle(fontSize: 14.0), 
+                      labelStyle: TextStyle(fontSize: 14.0),
                     ),
                     maxLines: 4,
                   ),
@@ -82,7 +82,8 @@ class ContactUsFormState extends State<ContactUsForm> {
                     },
                     child: const Text(
                       'Submit',
-                      style: TextStyle(fontSize: 16.0, color: Color.fromARGB(255, 2, 2, 2)),
+                      style: TextStyle(
+                          fontSize: 16.0, color: Color.fromARGB(255, 2, 2, 2)),
                     ),
                   ),
                 ],

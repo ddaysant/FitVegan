@@ -9,7 +9,7 @@ class AppStyles {
       gradient: gradient,
       image: DecorationImage(
         image: AssetImage(imagePath),
-        fit: BoxFit.cover, 
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -19,7 +19,8 @@ class AppContainer extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry? padding;
 
-  const AppContainer({Key? key, required this.child, this.padding}) : super(key: key);
+  const AppContainer({Key? key, required this.child, this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

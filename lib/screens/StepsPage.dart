@@ -41,7 +41,7 @@ class StepsPage extends StatelessWidget {
             Text(
               '3. Meanwhile, put the remaining coconut milk and sugar in a small pan. Add a pinch of salt and simmer until the mixture thickens to the consistency of single cream. Use this as a sauce for the pancakes and spoon over some of the passion fruit seeds.',
               style: TextStyle(fontSize: 16),
-            ),           
+            ),
           ],
         ),
       ),

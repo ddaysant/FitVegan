@@ -19,7 +19,6 @@ class RegisterScreen extends StatelessWidget {
         child: RegisterForm(),
       ),
       context: context,
-      
     );
   }
 }
@@ -119,8 +118,7 @@ class RegisterForm extends StatelessWidget {
                       },
                     ),
                     TextField(
-                      style: const TextStyle(
-                          color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       obscureText: true,
                       decoration: const InputDecoration(
                         labelText: 'Confirm Password',

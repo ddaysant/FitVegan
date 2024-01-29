@@ -7,7 +7,7 @@ class PlateCard extends StatelessWidget {
   final String description;
   final String imagePath;
 
-   const PlateCard(this.title, this.description, this.imagePath, {super.key});
+  const PlateCard(this.title, this.description, this.imagePath, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,8 @@ class PlateCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => PlateDetailPage(title, description, imagePath),
+            builder: (context) =>
+                PlateDetailPage(title, description, imagePath),
           ),
         );
       },

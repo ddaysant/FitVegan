@@ -59,7 +59,7 @@ class PlateCardPage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 680.0,
+              height: 750.0,
               child: CarouselPage(),
             ),
           ],

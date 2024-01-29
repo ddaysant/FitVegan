@@ -24,14 +24,18 @@ class IngredientsPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // Aquí puedes agregar tus imágenes pequeñas de verduras con títulos
             _buildIngredient('150g plain flour', 'assets/img/vegetal.png'),
-            _buildIngredient('2 tsp baking powde', 'assets/img/cosecha.png'), 
-            _buildIngredient('3 tbsp golden caster sugar', 'assets/img/vegetal.png'),
-             _buildIngredient('400ml can coconut milk, shaken well', 'assets/img/cosecha.png'),
-             _buildIngredient('vegetable oil, for frying', 'assets/img/vegetal.png'),
-                _buildIngredient('1-2 bananas, thinly sliced', 'assets/img/cosecha.png'),
-               _buildIngredient('2 passion fruits, flesh scooped out', 'assets/img/vegetal.png'),
+            _buildIngredient('2 tsp baking powde', 'assets/img/cosecha.png'),
+            _buildIngredient(
+                '3 tbsp golden caster sugar', 'assets/img/vegetal.png'),
+            _buildIngredient('400ml can coconut milk, shaken well',
+                'assets/img/cosecha.png'),
+            _buildIngredient(
+                'vegetable oil, for frying', 'assets/img/vegetal.png'),
+            _buildIngredient(
+                '1-2 bananas, thinly sliced', 'assets/img/cosecha.png'),
+            _buildIngredient('2 passion fruits, flesh scooped out',
+                'assets/img/vegetal.png'),
           ],
         ),
       ),

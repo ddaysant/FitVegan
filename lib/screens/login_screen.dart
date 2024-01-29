@@ -1,5 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors, avoid_print, use_build_context_synchronously, unused_import, prefer_const_constructors, duplicate_ignore
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitvegan/widgets/responsive_login.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import '../utils/app_transitions.dart';
 import '../style/style.dart';
-import 'register_screen.dart';
 import 'profile_screen.dart';
 import 'package:fitvegan/style/style_extension.dart';
 
@@ -16,6 +13,8 @@ class LoginScreen extends StatelessWidget {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  LoginScreen({super.key});
 
   Future<void> _login(BuildContext context) async {
     try {
@@ -26,18 +25,20 @@ class LoginScreen extends StatelessWidget {
       print('Usuario autenticado: ${FirebaseAuth.instance.currentUser?.email}');
 
       // Navega a la página de perfil después de un inicio de sesión exitoso
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ProfileView(),
+          builder: (context) => const ProfileView(),
         ),
       );
     } catch (e) {
       print('Error al iniciar sesión: $e');
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error al iniciar sesión: $e'),
-          backgroundColor: Color.fromARGB(255, 6, 171, 6),
+          backgroundColor: const Color.fromARGB(255, 6, 171, 6),
         ),
       );
     }
@@ -71,8 +72,8 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   TextField(
                     controller: emailController,
-                     style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(color: Colors.white),
                       focusedBorder: UnderlineInputBorder(
@@ -84,8 +85,8 @@ class LoginScreen extends StatelessWidget {
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(color: Colors.white),
                       focusedBorder: UnderlineInputBorder(
@@ -119,7 +120,7 @@ class LoginScreen extends StatelessWidget {
                       try {
                         Navigator.pushReplacement(
                           context,
-                          AppTransitions.slideTransition(ProfileView()),
+                          AppTransitions.slideTransition(const ProfileView()),
                         );
                       } catch (e) {
                         print('Error al iniciar sesión: $e');

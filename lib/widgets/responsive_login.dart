@@ -6,21 +6,21 @@ class ResponsiveLayout {
   }
 
   static bool isMediumScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width <= 1200 && MediaQuery.of(context).size.width > 800;
+    return MediaQuery.of(context).size.width <= 1200 &&
+        MediaQuery.of(context).size.width > 800;
   }
 
   static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width <= 800;
   }
-   static Widget buildScaffold({
+
+  static Widget buildScaffold({
     required Widget body,
     required BuildContext context,
     bool showFab = true,
   }) {
-     return Scaffold(
+    return Scaffold(
       body: body,
-     
     );
-   }
   }
-     
+}

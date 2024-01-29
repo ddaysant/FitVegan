@@ -10,11 +10,11 @@ class RecipeDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (recipeDetails.containsKey('error')) {
       return Scaffold(
-      
         appBar: AppBar(
           title: const Text('Error'),
         ),
-        body: const AppContainer(
+        body: Container(
+          color: Colors.white,
           child: Text('An error occurred while loading recipe details.'),
         ),
       );

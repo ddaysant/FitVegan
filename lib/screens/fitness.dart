@@ -29,7 +29,10 @@ class FitnessScreen extends StatelessWidget {
                 ),
                 const Text(
                   'Let\'s Workout!',
-                  style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -38,14 +41,46 @@ class FitnessScreen extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 children: [
-                  _buildWorkoutContainer(context, 'Squats', 'assets/img/ft1.png', 'https://youtu.be/xqvCmoLULNY?si=fxtSLmRAxY7BHIVV'),
-                  _buildWorkoutContainer(context, 'Glute Bridges', 'assets/img/fit2.png', 'https://youtu.be/XLXGydU5DdU?si=7USdxtCOhkVErsUB'),
-                  _buildWorkoutContainer(context, 'Planks', 'assets/img/fit3.png', 'https://youtu.be/yKoPxCsVknQ?si=2nnLGGPIcbDMBuQk'),
-                  _buildWorkoutContainer(context, 'Push-ups', 'assets/img/fit4.png', 'https://youtu.be/tWjBnQX3if0?si=umH8sOB93NxCC5VG'),
-                  _buildWorkoutContainer(context, 'Side Planks', 'assets/img/fit5.png', 'https://youtu.be/9dNL_mtObGQ?si=To5hwewBoxEmIbM-'),
-                  _buildWorkoutContainer(context, 'Wall Sits', 'assets/img/fit6.png', 'https://youtu.be/-cdph8hv0O0?si=HSS4rYgsZ3OggvvY'),
-                  _buildWorkoutContainer(context, 'Box Squats', 'assets/img/fit7.png', 'https://youtu.be/QifjltKUMCk?si=4ew-1eO0CdeqPsf6'),
-                  _buildWorkoutContainer(context, 'Side Leg Raises', 'assets/img/fit8.png', 'https://youtu.be/jgh6sGwtTwk?si=t70ufKHqt3gigtPP'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Squats',
+                      'assets/img/ft1.png',
+                      'https://youtu.be/xqvCmoLULNY?si=fxtSLmRAxY7BHIVV'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Glute Bridges',
+                      'assets/img/fit2.png',
+                      'https://youtu.be/XLXGydU5DdU?si=7USdxtCOhkVErsUB'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Planks',
+                      'assets/img/fit3.png',
+                      'https://youtu.be/yKoPxCsVknQ?si=2nnLGGPIcbDMBuQk'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Push-ups',
+                      'assets/img/fit4.png',
+                      'https://youtu.be/tWjBnQX3if0?si=umH8sOB93NxCC5VG'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Side Planks',
+                      'assets/img/fit5.png',
+                      'https://youtu.be/9dNL_mtObGQ?si=To5hwewBoxEmIbM-'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Wall Sits',
+                      'assets/img/fit6.png',
+                      'https://youtu.be/-cdph8hv0O0?si=HSS4rYgsZ3OggvvY'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Box Squats',
+                      'assets/img/fit7.png',
+                      'https://youtu.be/QifjltKUMCk?si=4ew-1eO0CdeqPsf6'),
+                  _buildWorkoutContainer(
+                      context,
+                      'Side Leg Raises',
+                      'assets/img/fit8.png',
+                      'https://youtu.be/jgh6sGwtTwk?si=t70ufKHqt3gigtPP'),
                 ],
               ),
             ),
@@ -56,7 +91,8 @@ class FitnessScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildWorkoutContainer(BuildContext context, String title, String imagePath, String videoUrl) {
+  Widget _buildWorkoutContainer(
+      BuildContext context, String title, String imagePath, String videoUrl) {
     return InkWell(
       onTap: () {
         _openYoutubeVideo(context, videoUrl);
@@ -72,7 +108,8 @@ class FitnessScreen extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(15)),
               child: Image.asset(
                 imagePath,
                 width: ResponsiveLayout.isLargeScreen(context) ? 150 : 100,
@@ -87,13 +124,14 @@ class FitnessScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   title,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
             const Positioned(
-              bottom: 20,
+              bottom: 5,
               left: 0,
               right: 0,
               child: Row(
@@ -114,7 +152,8 @@ class FitnessScreen extends StatelessWidget {
               left: 0,
               right: 0,
               child: Center(
-                child: Icon(Icons.play_circle_fill, size: 50, color: Colors.white),
+                child: Icon(Icons.play_circle_fill,
+                    size: 50, color: Color.fromARGB(118, 221, 70, 100)),
               ),
             ),
           ],
@@ -151,14 +190,13 @@ class FitnessScreen extends StatelessWidget {
                 child: YoutubePlayer(
                   controller: controller,
                   showVideoProgressIndicator: true,
-                  progressIndicatorColor: const Color.fromARGB(255, 255, 68, 149),
+                  progressIndicatorColor:
+                      const Color.fromARGB(255, 255, 68, 149),
                   progressColors: const ProgressBarColors(
                     playedColor: Color.fromARGB(255, 172, 65, 79),
                     handleColor: Color.fromARGB(255, 255, 68, 93),
                   ),
-                  onReady: () {
-                    // Video is ready.
-                  },
+                  onReady: () {},
                 ),
               ),
             ),

@@ -37,7 +37,7 @@ class DataEntryRow extends StatelessWidget {
                     child: child,
                   );
                 },
-                child: PlateCardPage(username: ''),
+                child: const PlateCardPage(username: ''),
               ),
               transitionDuration: const Duration(milliseconds: 500),
             ),

@@ -9,7 +9,8 @@ class ResponsiveLayout {
   }
 
   static bool isMediumScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width <= 1200 && MediaQuery.of(context).size.width > 800;
+    return MediaQuery.of(context).size.width <= 1200 &&
+        MediaQuery.of(context).size.width > 800;
   }
 
   static bool isSmallScreen(BuildContext context) {
@@ -40,12 +41,12 @@ class ResponsiveLayout {
               ),
             );
           },
-          child: const Icon(Icons.home),
-          backgroundColor: const Color.fromARGB(255, 255, 104, 104), 
+          backgroundColor: const Color.fromARGB(255, 255, 104, 104),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10), 
+            borderRadius: BorderRadius.circular(10),
           ),
+          child: const Icon(Icons.home),
         ),
         const SizedBox(width: 10),
         FloatingActionButton(
@@ -57,12 +58,12 @@ class ResponsiveLayout {
               ),
             );
           },
-          child: const Icon(Icons.contact_mail),
-          backgroundColor: const Color.fromARGB(255, 5, 255, 13), 
-          foregroundColor: Colors.white, 
+          backgroundColor: const Color.fromARGB(255, 5, 255, 13),
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10), 
+            borderRadius: BorderRadius.circular(10),
           ),
+          child: const Icon(Icons.contact_mail),
         ),
       ],
     );

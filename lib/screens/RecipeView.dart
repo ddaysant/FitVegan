@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 
 import 'RecipDetail.dart';
 
-
 class RecipeView extends StatefulWidget {
   const RecipeView({Key? key}) : super(key: key);
 
@@ -15,7 +14,7 @@ class RecipeView extends StatefulWidget {
 }
 
 class _RecipeViewState extends State<RecipeView> {
-  List<Map<String, dynamic>> recipes = []; 
+  List<Map<String, dynamic>> recipes = [];
 
   @override
   void initState() {
@@ -25,9 +24,9 @@ class _RecipeViewState extends State<RecipeView> {
 
   Future<void> _loadRecipes() async {
     try {
-     
       final response = await http.get(
-        Uri.parse('https://api.spoonacular.com/recipes/complexSearch?diet=vegan&apiKey=aa73b68782ec4ec18679121cd23b1450'),
+        Uri.parse(
+            'https://api.spoonacular.com/recipes/complexSearch?diet=vegan&apiKey=aa73b68782ec4ec18679121cd23b1450'),
       );
 
       if (response.statusCode == 200) {
@@ -54,7 +53,8 @@ class _RecipeViewState extends State<RecipeView> {
   Future<Map<String, dynamic>> _loadRecipeDetails(int recipeId) async {
     try {
       final response = await http.get(
-        Uri.parse('https://api.spoonacular.com/recipes/$recipeId/information?apiKey=aa73b68782ec4ec18679121cd23b1450'),
+        Uri.parse(
+            'https://api.spoonacular.com/recipes/$recipeId/information?apiKey=aa73b68782ec4ec18679121cd23b1450'),
       );
 
       if (response.statusCode == 200) {
@@ -82,16 +82,18 @@ class _RecipeViewState extends State<RecipeView> {
           var recipe = recipes[index];
           return GestureDetector(
             onTap: () async {
-              Map<String, dynamic> recipeDetails = await _loadRecipeDetails(recipe['id']);
+              Map<String, dynamic> recipeDetails =
+                  await _loadRecipeDetails(recipe['id']);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RecipeDetailsView(recipeDetails)),
+                MaterialPageRoute(
+                    builder: (context) => RecipeDetailsView(recipeDetails)),
               );
             },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 229, 241, 236),
+                color: const Color.fromARGB(255, 229, 241, 236),
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: const [
                   BoxShadow(color: Colors.black12, blurRadius: 2),
@@ -137,5 +139,3 @@ class _RecipeViewState extends State<RecipeView> {
     );
   }
 }
-
-
